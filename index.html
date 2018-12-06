@@ -341,42 +341,14 @@
 
       
         
-          
-            <p>写Blog主要是为了逼自己去总结，去深究。很多事想起来容易，做起来难，要叫你写出思路、探究原理、做出总结更加是难上加难。但是经过萃取后的经验和知识往往更加宝贵，也可能于别人有益。所谓赠人玫瑰，手有余香。这么多年来我总是那个索取的人，从今天开始，也做个赠与的人吧。</p>
-<p>之所以写这个教程的目的是，看到很多教程都是基于Windows或是Mac来做的。我用的比较多的是Linux，因此就写个Linux的教程。关键是定制一个最适合自己的模板。</p>
-<h2 id="本地安装Hexo"><a href="#本地安装Hexo" class="headerlink" title="本地安装Hexo"></a>本地安装Hexo</h2><p>之前在网上找的一些方法失败了，最新的方法可行。如下：<br><strong>1. 安装Git</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install git-core -y</span><br></pre></td></tr></table></figure></p>
-<p><strong>2. 安装Node.js</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- https://raw.github.com/creationix/nvm/master/install.sh | sh</span><br><span class="line">source ~/.profile</span><br><span class="line">nvm install stable</span><br></pre></td></tr></table></figure></p>
-<p><strong>3. 安装cnpm</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure></p>
-<p><strong>4. 安装Hexo</strong><br>先创建一个文件夹，然后进入到文件夹开始安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir hexo</span><br><span class="line">cd hexo/</span><br><span class="line">cnpm install -g hexo-cli</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure></p>
-<p><strong>5. 测试是否安装成功</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure></p>
-<p>此时看到的仅仅是本地的页面，接下来需要将其部署到Github页面上</p>
-<h2 id="Hexo主题"><a href="#Hexo主题" class="headerlink" title="Hexo主题"></a>Hexo主题</h2><p>作为一个极简主义爱好者，我对默认主题是不感冒的。因此在将blog部署到github上之前，我需要先换个主题。如果大家觉得默认主题就挺好，跳过这一步。</p>
-<p><strong>1. 下载Next主题</strong></p>
-<p>我使用的是Next主题，<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">传送</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir themes/next</span><br><span class="line">$ curl -s https://api.github.com/repos/iissnan/hexo-theme-next/releases/latest | grep tarball_url | cut -d &apos;&quot;&apos; -f 4 | wget -i - -O- | tar -zx -C themes/next --strip-components=1</span><br></pre></td></tr></table></figure></p>
-<p><strong>2. 启用主题</strong></p>
-<p>修改Hexo目录下的config.yml配置文件中的theme属性，将其设置为next。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next #或你的主题名，注意冒号后有一个空格</span><br></pre></td></tr></table></figure></p>
-<h2 id="部署博客到Github上"><a href="#部署博客到Github上" class="headerlink" title="部署博客到Github上"></a>部署博客到Github上</h2><p><strong>1. GitHub配置</strong></p>
-<p>参考此篇博文，<a href="https://blog.csdn.net/Gage__/article/details/80302471" target="_blank" rel="noopener">传送</a></p>
-<p>总体来说，你需要有个github帐号，需要能将本地的内容推送到github上，然后创建一个username.github.io仓库（这里的username对应自己的用户名）</p>
-<p><strong>2. 修改hexo配置文件</strong></p>
-<p>在 Hexo 文件夹下找到 config.yml 文件, 找到其中的 deploy 标签，改成下图所示形式，并保存。注意：冒号后面要加上一个空格，否则会报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">    type: git</span><br><span class="line">    repo: git@github.com:(BoView)/(BoView).github.io.git #括号里面换成自己的用户名和仓库名,去掉括号</span><br><span class="line">    branch: master</span><br></pre></td></tr></table></figure></p>
-<p><strong>3. 部署</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">//生成静态页面</span><br><span class="line">hexo g</span><br><span class="line">//将public文件内容部署到github仓库</span><br><span class="line">hexo d</span><br><span class="line">//这两条是常用的命令，后者也可以这样</span><br><span class="line">hexo d -g</span><br><span class="line">//或者</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
-<p>完成以上步骤后，就可以顺利使用username.github.io访问博客了。</p>
-<p>如果还想再完美一点，就买个域名，绑定一个域名，就可以用域名访问了。</p>
-<h2 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h2><p><strong>1. 添加域名解析</strong></p>
-<p>推荐使用DNSPOD服务，使用国外的DNS解析服务可能会被墙。</p>
-<p><a href="https://www.zhihu.com/question/31377141" target="_blank" rel="noopener">传送</a>讲的很清楚。另外注意一点，在DNSPOD进行域名解析之后，一定不要忘了回域名购买处将域名服务器设置为DNSPOD的域名服务器。</p>
-<p>另外Github现在已经支持https</p>
-<p><strong>2. 配置hexo</strong></p>
-<p>创建CNAME配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch ~/hexo/source/CNAME</span><br></pre></td></tr></table></figure></p>
-<p>在CNAME配置文件中添加刚刚解析过的域名，例如：zhangsan.com</p>
-<p>接下来重新部署一下，齐活～～～</p>
-<h2 id="发博文"><a href="#发博文" class="headerlink" title="发博文"></a>发博文</h2><p>这才是最重要的啊</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;postname&quot;</span><br><span class="line">去对应目录下postname.md文件中写博客</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
-<p>用hexo写博客，搭配Markdown语法最舒适。<a href="https://www.jianshu.com/p/b03a8d7b1719" target="_blank" rel="noopener">传送</a></p>
-
-          
+          写这个教程的目的是，看到很多教程都是基于Windows或是Mac来做的。我用的比较多的是Linux，因此就写个Linux的教程。关键是定制一个最适合自己的模板。
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/06/Ubuntu+GitHub+Hexo 搭建个人网站详细教程/">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
