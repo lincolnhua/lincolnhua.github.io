@@ -363,7 +363,7 @@
 <p><strong>3. 部署</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">//生成静态页面</span><br><span class="line">hexo g</span><br><span class="line">//将public文件内容部署到github仓库</span><br><span class="line">hexo d</span><br><span class="line">//这两条是常用的命令，后者也可以这样</span><br><span class="line">hexo d -g</span><br><span class="line">//或者</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
 <p>完成以上步骤后，就可以顺利使用username.github.io访问博客了。</p>
-<p>如果还想再完美一点，就买个域名，绑定一个域名，就可以用域名访问了。参见第4步骤。</p>
+<p>如果还想再完美一点，就买个域名，绑定一个域名，就可以用域名访问了。</p>
 <h2 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h2><p><strong>1. 添加域名解析</strong></p>
 <p>推荐使用DNSPOD服务，使用国外的DNS解析服务可能会被墙。</p>
 <p><a href="https://www.zhihu.com/question/31377141" target="_blank" rel="noopener">传送</a>讲的很清楚。另外注意一点，在DNSPOD进行域名解析之后，一定不要忘了回域名购买处将域名服务器设置为DNSPOD的域名服务器。</p>
@@ -374,6 +374,7 @@
 <p>接下来重新部署一下，齐活～～～</p>
 <h2 id="发博文"><a href="#发博文" class="headerlink" title="发博文"></a>发博文</h2><p>这才是最重要的啊</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;postname&quot;</span><br><span class="line">去对应目录下postname.md文件中写博客</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+<p>用hexo写博客，搭配Markdown语法最舒适。<a href="https://www.jianshu.com/p/b03a8d7b1719" target="_blank" rel="noopener">传送</a></p>
 
           
         
